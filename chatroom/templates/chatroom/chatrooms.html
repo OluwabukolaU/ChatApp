@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+
+{% block title %}Chatrooms |  {% endblock %}
+
+{% block content %}
+    <div class='p-10 lg:p-20 text-center'>
+        <h1 class='lg:text-6xl font-bold'>Chatrooms</h1>
+    </div>
+
+    <div class="w-full flex flex-wrap items-center">
+        {% for chatroom in chatrooms%}
+
+            <div class="w-full lg:w-1/4 px-3 py-4">
+                <div class="p-4 bg-white shadow rounded-xl text-center">
+                    <h2 class="mb:5 text-2xl font-semibold">{{chatroom.name }}</h2>
+                    <a href="{% url 'chatroom' chatroom.slug %}" class='px-5 py-3 block rounded-xl text-black bg-pink-200 hover:bg-pink-500'>Join</a>
+                    
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
